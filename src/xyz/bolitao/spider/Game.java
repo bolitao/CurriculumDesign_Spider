@@ -8,6 +8,11 @@ package xyz.bolitao.spider;
  */
 public class Game implements Comparable<Game> {
     /**
+     * Main key
+     */
+    String mainKey;
+
+    /**
      * 游戏名
      */
     public String name;

@@ -1,6 +1,8 @@
 package xyz.bolitao.spider;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -21,7 +23,7 @@ public class Spider {
      * 存储文件的列表
      */
     List<Game> gameList = new ArrayList<>();
-
+//    List<Game> gameList = Collections.synchronizedList(new LinkedList<>());
     /**
      * 线程池
      */
@@ -37,18 +39,14 @@ public class Spider {
 
 
     public void run() {
-        servicePool = Executors.newFixedThreadPool(4);
-//        servicePool = Executors.newCachedThreadPool();
-        for (int i = 0; i < 1; i++) {
-            System.out.println(url + i);
+        servicePool = Executors.newFixedThreadPool(1);
+        for (int i = 0; i < 7; i++) {
+//            System.out.println(url + i);
             servicePool.execute(new SpiderTask(url + i, gameList));
         }
         servicePool.shutdown();
+//        for (int i = 0; i < 7; i++) {
+//            SpiderTask spiderTask = new SpiderTask(url + i, gameList);
+//        }
     }
-
-//    public static void writeData(List<Game> games) {
-//        System.out.println(games.size());
-//        Collections.sort(games);
-//        String gameJson = new Gson().toString(games);
-//    }
 }

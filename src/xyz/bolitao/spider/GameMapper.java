@@ -9,13 +9,13 @@ import java.util.List;
 // @为注解
 @Mapper
 public interface GameMapper {
-    @Insert("INSERT INTO basic_formation(name,metaScore,release_date,maturityRating,publisher,genre,userScore,platform) VALUES(#{name},#{metaScore},#{releaseDate},#{maturityRating},#{publisher},#{genre},#{userScore},#{userScore}")
+    @Insert("insert into basic_information(name,metaScore,releaseDate,maturityRating,publisher,genre,userScore,platform) values(#{name},#{metaScore},#{releaseDate},#{maturityRating},#{publisher},#{genre},#{userScore},#{platform})")
     void insert(Game game);
 
     // TODO: 反射
-    @Select("SELECT * FROM game_information WHERE name=#{pk}")
+    @Select("SELECT * FROM basic_information WHERE name=#{pk}")
     Game load(String pk);
 
-    @Select("SELECT * FROM game_information")
+    @Select("SELECT * FROM basic_information")
     List<Game> find();
 }

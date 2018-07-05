@@ -11,6 +11,8 @@ import org.jsoup.select.Elements;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -28,7 +30,7 @@ public class SpiderTask implements Runnable {
      * 存储文件的列表
      */
     List<Game> gameList = new ArrayList<>();
-
+//    List<Game> gameList = Collections.synchronizedList(new LinkedList<>());
     /**
      * 构造方法
      * 获取用于操作的 url
@@ -41,8 +43,8 @@ public class SpiderTask implements Runnable {
     @Override
     public void run() {
         try {
-            System.setProperty("http.proxyHost", "127.0.0.1");
-            System.setProperty("http.proxyPort", "1080");
+//            System.setProperty("http.proxyHost", "127.0.0.1");
+//            System.setProperty("http.proxyPort", "1080");
             Document doc = Jsoup.connect(url).get();
             Elements items = doc.select(".col.main_col .list_products.list_product_summaries " +
                     ".product.has_small_image");
@@ -74,7 +76,6 @@ public class SpiderTask implements Runnable {
                 异常：站点可能未提供游戏类型/分类，爬虫会抛出 IndexOutOfBoundsException
                 处理：遇到这种情况将 genre 值设为 " " 或 null
                 TODO: null 和 " " 对后期导入数据库哪个更便利？
-                Tip: 不要把处理放到 finally {} 里，这会导致所有字段的 genre 都为 null（熬夜会写出令人窒息的代码
                  */
                 try {
                     game.genre = item.select(".stat.genre").get(0).text();
@@ -93,12 +94,14 @@ public class SpiderTask implements Runnable {
                     game.userScore = -1;
                 }
                 game.platform = item.select(".stat.platform_list .data").get(0).text();
+                game.mainKey = game.name + " - " + game.platform;
                 /*
                 无法获取链接，可能是某种反爬虫措施
                 TODO: 修正无法正确获取图片链接的问题
                  */
                 // game.imageUrl = item.select("img").get(0).attr("src");
-                System.out.println(game.toString());
+//                System.out.println(game);
+//                System.out.println(game.toString());
                 gameList.add(game);
             }
 
@@ -108,10 +111,10 @@ public class SpiderTask implements Runnable {
                     new FileReader("config.xml")
             );
             SqlSession session = factory.openSession();
-            // 获得了接口的具体实现
+            // 获得接口的具体实现
             GameMapper mapper = session.getMapper(GameMapper.class);
-            for (Game game : gameList) {
-                mapper.insert(game);
+            for (Game g : gameList) {
+                mapper.insert(g);
             }
             session.commit();
             session.close();
