@@ -16,7 +16,3 @@ The crawler mainly collects the game information on [Metacritic](http://www.meta
 
 - Simulate HTTP requests
 - interactive CLI
-
-## License
-
-[MIT](https://gitlab.com/bolitao/CurriculumDesign_Spider/blob/master/LICENSE)
