@@ -14,7 +14,7 @@
                 <!--<property name="username" value="${root}"/>-->
                 <property name="username" value="root"/>
                 <!--<property name="password" value="${Zxc7601329!}"/>-->
-                <property name="password" value="Zxc7601329!"/>
+                <property name="password" value="zxc7601329"/>
             </dataSource>
         </environment>
     </environments>

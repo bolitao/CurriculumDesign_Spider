@@ -39,8 +39,8 @@ public class Spider {
 
 
     public void run() {
-        servicePool = Executors.newFixedThreadPool(1);
-        for (int i = 0; i < 7; i++) {
+        servicePool = Executors.newFixedThreadPool(4);
+        for (int i = 0; i < 100; i++) {
 //            System.out.println(url + i);
             servicePool.execute(new SpiderTask(url + i, gameList));
         }
