@@ -8,7 +8,8 @@ package xyz.bolitao.spider;
  */
 public class Game implements Comparable<Game> {
     /**
-     * Main key
+     * 游戏名 + 平台 + 发售日期的 MD5 值
+     * 用作主键
      */
     String mainKey;
 

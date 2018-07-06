@@ -1,5 +1,6 @@
 package xyz.bolitao.spider;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -31,6 +32,7 @@ public class SpiderTask implements Runnable {
      */
     List<Game> gameList = new ArrayList<>();
 //    List<Game> gameList = Collections.synchronizedList(new LinkedList<>());
+
     /**
      * 构造方法
      * 获取用于操作的 url
@@ -94,26 +96,13 @@ public class SpiderTask implements Runnable {
                     game.userScore = -1;
                 }
                 game.platform = item.select(".stat.platform_list .data").get(0).text();
-                game.mainKey = game.name + " - " + game.platform;
+//                game.mainKey = game.name + " - " + game.platform;
+//                game.mainKey = DigestUtils.sha256Hex(game.name + game.platform + game.metaScore + game.userScore + game.releaseDate + game.publisher + game.genre + game.maturityRating);
+                game.mainKey = DigestUtils.md5Hex(game.name + game.platform + game.releaseDate);
 //                System.out.println(game);
 //                System.out.println(game.toString());
                 gameList.add(game);
             }
-
-            // 存储到数据库
-            // 建立连接
-            SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(
-                    new FileReader("config.xml")
-            );
-            SqlSession session = factory.openSession();
-            // 获得接口的具体实现
-            GameMapper mapper = session.getMapper(GameMapper.class);
-            for (Game g : gameList) {
-                mapper.insert(g);
-            }
-            session.commit();
-            session.close();
-            System.out.println("存储成功");
         } catch (IOException e) {
         }
     }
