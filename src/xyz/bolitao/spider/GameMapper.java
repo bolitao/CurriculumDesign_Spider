@@ -9,7 +9,7 @@ import java.util.List;
 // @为注解
 @Mapper
 public interface GameMapper {
-    @Insert("insert into basic_information(name,metaScore,releaseDate,maturityRating,publisher,genre,userScore,platform) values(#{name},#{metaScore},#{releaseDate},#{maturityRating},#{publisher},#{genre},#{userScore},#{platform})")
+    @Insert("insert into basic_information(mainKey,name,metaScore,releaseDate,maturityRating,publisher,genre,userScore,platform) values(#{mainKey},#{name},#{metaScore},#{releaseDate},#{maturityRating},#{publisher},#{genre},#{userScore},#{platform})")
     void insert(Game game);
 
     // TODO: 反射

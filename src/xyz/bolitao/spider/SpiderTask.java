@@ -59,7 +59,7 @@ public class SpiderTask implements Runnable {
                 处理：游戏分级设置为 null
                  */
                 try {
-                    game.maturityRating = item.select(".stat.maturity_rating").get(0).text();
+                    game.maturityRating = item.select(".stat.maturity_rating .data").get(0).text();
                 } catch (IndexOutOfBoundsException e) {
                     game.maturityRating = null;
                 }
@@ -95,11 +95,6 @@ public class SpiderTask implements Runnable {
                 }
                 game.platform = item.select(".stat.platform_list .data").get(0).text();
                 game.mainKey = game.name + " - " + game.platform;
-                /*
-                无法获取链接，可能是某种反爬虫措施
-                TODO: 修正无法正确获取图片链接的问题
-                 */
-                // game.imageUrl = item.select("img").get(0).attr("src");
 //                System.out.println(game);
 //                System.out.println(game.toString());
                 gameList.add(game);
