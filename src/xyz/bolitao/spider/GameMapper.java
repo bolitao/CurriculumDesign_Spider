@@ -2,20 +2,20 @@ package xyz.bolitao.spider;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
 
-import java.util.List;
-
-// @为注解
+/**
+ * @author Boli Tao
+ * @date 2018/7/7
+ */
 @Mapper
 public interface GameMapper {
-    @Insert("insert into basic_information(mainKey,name,metaScore,releaseDate,maturityRating,publisher,genre,userScore,platform) values(#{mainKey},#{name},#{metaScore},#{releaseDate},#{maturityRating},#{publisher},#{genre},#{userScore},#{platform})")
+    @Insert("insert into basic_information(mainKey,name,metaScore,releaseDate,maturityRating,publisher,genre,userScore,platform, imgUrl) values(#{mainKey},#{name},#{metaScore},#{releaseDate},#{maturityRating},#{publisher},#{genre},#{userScore},#{platform},#{imgUrl})")
     void insert(Game game);
 
-    // TODO: 反射
-    @Select("SELECT * FROM basic_information WHERE name=#{pk}")
-    Game load(String pk);
-
-    @Select("SELECT * FROM basic_information")
-    List<Game> find();
+//    // TODO:
+//    @Select("SELECT * FROM basic_information WHERE name=#{pk}")
+//    Game load(String pk);
+//
+//    @Select("SELECT * FROM basic_information")
+//    List<Game> find();
 }

@@ -53,7 +53,10 @@ public class Game implements Comparable<Game> {
      */
     public String platform;
 
-    // TODO: 获得图片链接/下载缩略图
+    /**
+     * 缩略图链接
+     */
+    public String imgUrl;
 
     @Override
     public String toString() {
@@ -131,6 +134,22 @@ public class Game implements Comparable<Game> {
 
     public void setPlatform(String platform) {
         this.platform = platform;
+    }
+
+    public String getMainKey() {
+        return mainKey;
+    }
+
+    public void setMainKey(String mainKey) {
+        this.mainKey = mainKey;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
     @Override

@@ -4,18 +4,16 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import javax.sound.midi.Soundbank;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
  * 爬虫主程序
+ * 将数据存入数据库的具体实现
  *
  * @author Boli Tao
  * @since 2018/7/3
@@ -30,7 +28,6 @@ public class Spider {
      * 存储文件的列表
      */
     List<Game> gameList = new ArrayList<>();
-//    List<Game> gameList = Collections.synchronizedList(new LinkedList<>());
     /**
      * 线程池
      */
@@ -47,15 +44,15 @@ public class Spider {
 
     public void run() {
         servicePool = Executors.newFixedThreadPool(4);
+        System.out.println("开始爬取数据，请等待");
         for (int i = 0; i < 155; i++) {
-//            System.out.println(url + i);
             servicePool.execute(new SpiderTask(url + i, gameList));
         }
         servicePool.shutdown();
-        while (true)
-        {
-            if (servicePool.isTerminated())
+        while (true) {
+            if (servicePool.isTerminated()) {
                 break;
+            }
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -65,8 +62,9 @@ public class Spider {
 //        for (int i = 0; i < 7; i++) {
 //            SpiderTask spiderTask = new SpiderTask(url + i, gameList);
 //        }
-        System.out.println(gameList.size());
-        // 存储到数据库
+//        System.out.println(gameList.size());
+
+        // 将数据存入数据库
         // 建立连接
         SqlSessionFactory factory = null;
         try {
@@ -84,6 +82,6 @@ public class Spider {
         }
         session.commit();
         session.close();
-        System.out.println("存储成功");
+        System.out.println("成功将数据存入数据库");
     }
 }

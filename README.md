@@ -2,17 +2,14 @@
 
 My Java curriculum design of 2018 spring term.
 
-A simple crawler implemented by Java.
-
-The crawler mainly collects the game information on [Metacritic](http://www.metacritic.com/game).
+A simple crawler collects the game information on [Metacritic](http://www.metacritic.com/game) implemented by Java.
 
 ## Environment
 
 - JDK version: 10.0.1
-- Dependency: [jsoup](https://jsoup.org/)
+- Dependency: [jsoup](https://jsoup.org/), [mysql-connector-java](https://mvnrepository.com/artifact/mysql/mysql-connector-java), [mybatis](http://www.mybatis.org/mybatis-3/), [Codec](https://commons.apache.org/proper/commons-codec/)
 - OS: Windows 10 1803, MacOS 10.13.5
 
-## TODO
+## License
 
-- Simulate HTTP requests
-- interactive CLI
+GPL

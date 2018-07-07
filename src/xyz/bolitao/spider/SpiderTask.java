@@ -1,23 +1,17 @@
 package xyz.bolitao.spider;
 
 import org.apache.commons.codec.digest.DigestUtils;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
- * 爬虫的任务处理具体过程
+ * 爬虫的具体方法
  *
  * @author Boli Tao
  */
@@ -45,11 +39,10 @@ public class SpiderTask implements Runnable {
     @Override
     public void run() {
         try {
-//            System.setProperty("http.proxyHost", "127.0.0.1");
-//            System.setProperty("http.proxyPort", "1080");
             Document doc = Jsoup.connect(url).get();
             Elements items = doc.select(".col.main_col .list_products.list_product_summaries " +
                     ".product.has_small_image");
+//            System.out.println(doc.data());
             // 遍历获得的 doc
             for (Element item : items) {
                 Game game = new Game();
@@ -76,8 +69,7 @@ public class SpiderTask implements Runnable {
                 }
                 /*
                 异常：站点可能未提供游戏类型/分类，爬虫会抛出 IndexOutOfBoundsException
-                处理：遇到这种情况将 genre 值设为 " " 或 null
-                TODO: null 和 " " 对后期导入数据库哪个更便利？
+                处理：遇到这种情况将 genre 值设为 null
                  */
                 try {
                     game.genre = item.select(".stat.genre").get(0).text();
@@ -96,11 +88,9 @@ public class SpiderTask implements Runnable {
                     game.userScore = -1;
                 }
                 game.platform = item.select(".stat.platform_list .data").get(0).text();
-//                game.mainKey = game.name + " - " + game.platform;
-//                game.mainKey = DigestUtils.sha256Hex(game.name + game.platform + game.metaScore + game.userScore + game.releaseDate + game.publisher + game.genre + game.maturityRating);
+                game.imgUrl = item.select("img").get(0).attr("src");
                 game.mainKey = DigestUtils.md5Hex(game.name + game.platform + game.releaseDate);
-//                System.out.println(game);
-//                System.out.println(game.toString());
+                System.out.println(game.toString());
                 gameList.add(game);
             }
         } catch (IOException e) {
