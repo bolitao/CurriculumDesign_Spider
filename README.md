@@ -1,6 +1,4 @@
-# CurriculumDesign: Crawler
-
-My Java curriculum design of 2018 spring term.
+# Metacritic Crawler
 
 A simple crawler collects the game information on [Metacritic](http://www.metacritic.com/game) implemented by Java.
 
