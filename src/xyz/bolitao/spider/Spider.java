@@ -59,10 +59,6 @@ public class Spider {
                 e.printStackTrace();
             }
         }
-//        for (int i = 0; i < 7; i++) {
-//            SpiderTask spiderTask = new SpiderTask(url + i, gameList);
-//        }
-//        System.out.println(gameList.size());
 
         // 将数据存入数据库
         // 建立连接

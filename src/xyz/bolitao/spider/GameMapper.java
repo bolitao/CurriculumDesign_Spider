@@ -11,11 +11,4 @@ import org.apache.ibatis.annotations.Mapper;
 public interface GameMapper {
     @Insert("insert into basic_information(mainKey,name,metaScore,releaseDate,maturityRating,publisher,genre,userScore,platform, imgUrl) values(#{mainKey},#{name},#{metaScore},#{releaseDate},#{maturityRating},#{publisher},#{genre},#{userScore},#{platform},#{imgUrl})")
     void insert(Game game);
-
-//    // TODO:
-//    @Select("SELECT * FROM basic_information WHERE name=#{pk}")
-//    Game load(String pk);
-//
-//    @Select("SELECT * FROM basic_information")
-//    List<Game> find();
 }

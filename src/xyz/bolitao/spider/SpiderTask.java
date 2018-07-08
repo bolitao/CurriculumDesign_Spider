@@ -25,7 +25,6 @@ public class SpiderTask implements Runnable {
      * 存储文件的列表
      */
     List<Game> gameList = new ArrayList<>();
-//    List<Game> gameList = Collections.synchronizedList(new LinkedList<>());
 
     /**
      * 构造方法
@@ -42,7 +41,6 @@ public class SpiderTask implements Runnable {
             Document doc = Jsoup.connect(url).get();
             Elements items = doc.select(".col.main_col .list_products.list_product_summaries " +
                     ".product.has_small_image");
-//            System.out.println(doc.data());
             // 遍历获得的 doc
             for (Element item : items) {
                 Game game = new Game();
@@ -91,6 +89,7 @@ public class SpiderTask implements Runnable {
                 game.imgUrl = item.select("img").get(0).attr("src");
                 game.mainKey = DigestUtils.md5Hex(game.name + game.platform + game.releaseDate);
                 System.out.println(game.toString());
+                System.out.println("");
                 gameList.add(game);
             }
         } catch (IOException e) {

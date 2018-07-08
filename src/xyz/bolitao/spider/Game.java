@@ -61,7 +61,8 @@ public class Game implements Comparable<Game> {
     @Override
     public String toString() {
         return "Game{" +
-                "name='" + name + '\'' +
+                "mainKey='" + mainKey + '\'' +
+                ", name='" + name + '\'' +
                 ", metaScore=" + metaScore +
                 ", releaseDate='" + releaseDate + '\'' +
                 ", maturityRating='" + maturityRating + '\'' +
@@ -69,6 +70,7 @@ public class Game implements Comparable<Game> {
                 ", genre='" + genre + '\'' +
                 ", userScore=" + userScore +
                 ", platform='" + platform + '\'' +
+                ", imgUrl='" + imgUrl + '\'' +
                 '}';
     }
 
