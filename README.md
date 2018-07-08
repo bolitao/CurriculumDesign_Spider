@@ -12,4 +12,4 @@ A simple crawler collects the game information on [Metacritic](http://www.metacr
 
 ## License
 
-GPL
+[GPL-3.0](https://github.com/bolitao/CurriculumDesign_Spider/blob/master/LICENSE)
