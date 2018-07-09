@@ -37,7 +37,7 @@ public class ImgDownloadTask implements Runnable {
                 connection.setConnectTimeout(10 * 1000);
                 in = connection.getInputStream();
                 // 以主键.jpg 作为图片名字
-                fout = new FileOutputStream(new File("Img\\" + game.mainKey + ".jpg"));
+                fout = new FileOutputStream(new File("Img" + File.separator + game.mainKey + ".jpg"));
                 byte[] buf = new byte[1024];
                 int lenth;
                 while (-1 != (lenth = in.read(buf))) {
