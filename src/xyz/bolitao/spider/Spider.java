@@ -28,6 +28,12 @@ public class Spider {
      * 存储文件的列表
      */
     List<Game> gameList = new ArrayList<>();
+
+    /**
+     * Game
+     */
+    Game game;
+
     /**
      * 线程池
      */
@@ -45,7 +51,7 @@ public class Spider {
     public void run() {
         servicePool = Executors.newFixedThreadPool(4);
         System.out.println("开始爬取数据，请等待");
-        for (int i = 0; i < 155; i++) {
+        for (int i = 0; i < 2; i++) {
             servicePool.execute(new SpiderTask(url + i, gameList));
         }
         servicePool.shutdown();
@@ -79,5 +85,10 @@ public class Spider {
         session.commit();
         session.close();
         System.out.println("成功将数据存入数据库");
+
+        // 图片下载
+        ImgDownloadTask imgDownloadTask = new ImgDownloadTask(Game game) {
+
+        }
     }
 }
