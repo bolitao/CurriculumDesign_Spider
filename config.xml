@@ -9,8 +9,8 @@
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver"/>
                 <property name="url" value="jdbc:mysql://127.0.0.1:3306/game?serverTimezone=UTC"/>
-                <property name="username" value="username"/>
-                <property name="password" value="password"/>
+                <property name="username" value="bolitao"/>
+                <property name="password" value="zxc7601329"/>
             </dataSource>
         </environment>
     </environments>
