@@ -39,6 +39,8 @@ public class Spider {
      */
     ExecutorService servicePool;
 
+    ExecutorService imgPool;
+
     /**
      * 构造方法
      * 获取用于操作的 url
@@ -87,8 +89,12 @@ public class Spider {
         System.out.println("成功将数据存入数据库");
 
         // 图片下载
-        ImgDownloadTask imgDownloadTask = new ImgDownloadTask(Game game) {
-
+        imgPool = Executors.newFixedThreadPool(4);
+        System.out.println("正在下载封面...");
+        for (int i = 0; i < 100; i++) {
+            imgPool.execute(new ImgDownloadTask(gameList.get(i)));
         }
+        imgPool.shutdown();
+        System.out.println("封面下载完成！");
     }
 }
