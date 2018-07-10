@@ -90,11 +90,10 @@ public class Spider {
 
         // 图片下载
         imgPool = Executors.newFixedThreadPool(4);
-        System.out.println("正在下载封面...");
+        System.out.println("正在下载封面,请等待程序结束...");
         for (int i = 0; i < 100; i++) {
             imgPool.execute(new ImgDownloadTask(gameList.get(i)));
         }
         imgPool.shutdown();
-        System.out.println("封面下载完成！");
     }
 }
