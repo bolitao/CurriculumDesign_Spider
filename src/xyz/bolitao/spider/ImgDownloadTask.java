@@ -15,7 +15,7 @@ import java.net.URLConnection;
  */
 public class ImgDownloadTask implements Runnable {
     /**
-     * 爬取的对象
+     * 爬取的游戏对象
      */
     Game game;
 
