@@ -15,7 +15,7 @@ import java.net.URLConnection;
  */
 public class ImgDownloadTask implements Runnable {
     /**
-     * 爬取的对象
+     * 爬取的游戏对象
      */
     Game game;
 
@@ -39,9 +39,9 @@ public class ImgDownloadTask implements Runnable {
                 // 以主键.jpg 作为图片名字
                 fout = new FileOutputStream(new File("Img" + File.separator + game.mainKey + ".jpg"));
                 byte[] buf = new byte[1024];
-                int lenth;
-                while (-1 != (lenth = in.read(buf))) {
-                    fout.write(buf, 0, lenth);
+                int length;
+                while (-1 != (length = in.read(buf))) {
+                    fout.write(buf, 0, length);
                 }
             } catch (IOException ioe) {
                 ioe.printStackTrace();
