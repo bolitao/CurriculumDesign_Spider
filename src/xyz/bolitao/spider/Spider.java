@@ -3,6 +3,7 @@ package xyz.bolitao.spider;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import xyz.bolitao.spider.database.GameMapper;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -73,7 +74,7 @@ public class Spider {
         SqlSessionFactory factory = null;
         try {
             factory = new SqlSessionFactoryBuilder().build(
-                    new FileReader("config.xml")
+                    new FileReader("src/xyz/bolitao/spider/database/config.xml")
             );
         } catch (FileNotFoundException e) {
             e.printStackTrace();
