@@ -33,8 +33,8 @@ public class ImgDownloadTask implements Runnable {
             try {
                 // 建立连接
                 URLConnection connection = url.openConnection();
-                // 设置超时为 10 秒
-                connection.setConnectTimeout(10 * 1000);
+                // 设置超时为 50 秒
+                connection.setConnectTimeout(50 * 1000);
                 in = connection.getInputStream();
                 // 以主键.jpg 作为图片名字
                 fout = new FileOutputStream(new File("Img" + File.separator + game.mainKey + ".jpg"));

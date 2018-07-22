@@ -10,6 +10,5 @@ create table basic_information
   genre          varchar(300) null,
   userScore      double       null,
   platform       varchar(30)  not null,
-  imgUrl         varchar()    not null
+  imgUrl         varchar(300)    not null
 );
-
