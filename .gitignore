@@ -136,10 +136,6 @@ fabric.properties
 # Editor-based Rest Client
 .idea/httpRequests
 
-# IDEA
-.idea
-*.iml
-
 # Project dependences
 dependence
 
