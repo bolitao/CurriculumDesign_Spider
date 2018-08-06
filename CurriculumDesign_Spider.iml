@@ -12,5 +12,7 @@
     <orderEntry type="library" name="mybatis-3.4" level="project" />
     <orderEntry type="library" name="mysql-connector-java-8.0" level="project" />
     <orderEntry type="library" name="jsoup-1.11.3-javadoc" level="project" />
+    <orderEntry type="library" name="jsoup" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-8.0.12" level="project" />
   </component>
 </module>
