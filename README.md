@@ -1,4 +1,4 @@
-# Metacritic Crawler
+# [Metacritic Crawler](https://github.com/bolitao/Metacritic-Crawler)
 
 A simple crawler collects the game information on [Metacritic](http://www.metacritic.com/game) implemented by Java.
 
