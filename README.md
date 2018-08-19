@@ -4,6 +4,8 @@ A simple crawler collects the game information on [Metacritic](http://www.metacr
 
 Code: [GitHub](https://github.com/bolitao/Metacritic-Crawler)
 
+Homepage: [Metacritic Crawler](https://www.bolitao.xyz/Metacritic-Crawler/)
+
 ## Environment
 
 - JDK version: 10.0.2
