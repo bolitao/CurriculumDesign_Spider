@@ -1,8 +1,8 @@
-package xyz.bolitao.spider.database;
+package database;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
-import xyz.bolitao.spider.Game;
+import Game;
 
 /**
  * @author Boli Tao

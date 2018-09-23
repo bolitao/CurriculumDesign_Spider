@@ -1,5 +1,3 @@
-package xyz.bolitao.spider;
-
 import org.apache.commons.codec.digest.DigestUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

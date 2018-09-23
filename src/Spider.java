@@ -1,9 +1,7 @@
-package xyz.bolitao.spider;
-
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import xyz.bolitao.spider.database.GameMapper;
+import database.GameMapper;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;

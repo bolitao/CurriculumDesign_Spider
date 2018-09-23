@@ -1,5 +1,3 @@
-package xyz.bolitao.spider;
-
 /**
  * 游戏详细信息
  *

@@ -1,5 +1,3 @@
-package xyz.bolitao.spider;
-
 /**
  * 程序入口
  *
