@@ -1,3 +1,5 @@
+package xyz.bolitao;
+
 /**
  * 游戏详细信息
  *
@@ -58,7 +60,7 @@ public class Game implements Comparable<Game> {
 
     @Override
     public String toString() {
-        return "Game{" +
+        return "xyz.bolitao.Game{" +
                 "mainKey='" + mainKey + '\'' +
                 ", name='" + name + '\'' +
                 ", metaScore=" + metaScore +

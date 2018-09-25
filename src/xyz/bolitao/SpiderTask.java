@@ -1,3 +1,5 @@
+package xyz.bolitao;
+
 import org.apache.commons.codec.digest.DigestUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

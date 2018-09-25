@@ -1,3 +1,5 @@
+package xyz.bolitao;
+
 /**
  * 程序入口
  *
