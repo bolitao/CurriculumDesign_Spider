@@ -39,7 +39,7 @@ public class SpiderTask implements Runnable {
     public void run() {
         try {
             Document doc = Jsoup.connect(url).get();
-            Elements items = doc.select(".col.main_col .list_products.list_product_summaries " +
+            Elements items = doc.select(".col.main_col .list_products.list_cproduct_summaries " +
                     ".product.has_small_image");
             // 遍历获得的 doc
             for (Element item : items) {
@@ -88,7 +88,6 @@ public class SpiderTask implements Runnable {
                 game.platform = item.select(".stat.platform_list .data").get(0).text();
                 game.imgUrl = item.select("img").get(0).attr("src");
                 game.mainKey = DigestUtils.md5Hex(game.name + game.platform + game.releaseDate);
-//                System.out.println(game.toString());
                 gameList.add(game);
             }
         } catch (IOException e) {

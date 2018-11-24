@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CurriculumDesign_Spider.iml" filepath="$PROJECT_DIR$/CurriculumDesign_Spider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Metacritic-Crawler.iml" filepath="$PROJECT_DIR$/.idea/Metacritic-Crawler.iml" />
     </modules>
   </component>
 </project>
