@@ -4,6 +4,8 @@ A simple crawler collects the game information on [Metacritic](http://www.metacr
 
 Code: [GitHub](https://github.com/bolitao/Metacritic-Crawler)
 
+Site: [Metacritic Crawler | Metacritic-Crawler](https://bolitao.xyz/Metacritic-Crawler/)
+
 Result: [Metacritic 爬虫](https://bolitao.xyz/archives/d6da7608.html)
 
 Data: the `result/basic_information.csv` file in GitHub repository
