@@ -6,9 +6,7 @@ Code: [GitHub](https://github.com/bolitao/Metacritic-Crawler)
 
 Site: [Metacritic Crawler](https://bolitao.xyz/Metacritic-Crawler/)
 
-Result: [Metacritic 爬虫](https://bolitao.xyz/archives/d6da7608.html)
-
-Data: the `result/basic_information.csv` file in GitHub repository
+Data: [basic_information.csv](https://raw.githubusercontent.com/bolitao/Metacritic-Crawler/master/result/basic_information.csv)
 
 ## Dev Environment
 
